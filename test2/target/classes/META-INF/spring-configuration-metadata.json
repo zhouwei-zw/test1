@@ -1,0 +1,62 @@
+{
+  "groups": [
+    {
+      "name": "minio",
+      "type": "com.example.demo.entity.MinioEntity",
+      "sourceType": "com.example.demo.entity.MinioEntity"
+    },
+    {
+      "name": "redisson.lock.server",
+      "type": "com.example.demo.entity.RedissonProperties",
+      "sourceType": "com.example.demo.entity.RedissonProperties"
+    }
+  ],
+  "properties": [
+    {
+      "name": "minio.bucket-name",
+      "type": "java.lang.String",
+      "sourceType": "com.example.demo.entity.MinioEntity"
+    },
+    {
+      "name": "minio.miniourl",
+      "type": "java.lang.String",
+      "sourceType": "com.example.demo.entity.MinioEntity"
+    },
+    {
+      "name": "minio.name",
+      "type": "java.lang.String",
+      "sourceType": "com.example.demo.entity.MinioEntity"
+    },
+    {
+      "name": "minio.pass",
+      "type": "java.lang.String",
+      "sourceType": "com.example.demo.entity.MinioEntity"
+    },
+    {
+      "name": "redisson.lock.server.address",
+      "type": "java.lang.String",
+      "description": "redis主机地址，ip：port，有多个用半角逗号分隔",
+      "sourceType": "com.example.demo.entity.RedissonProperties"
+    },
+    {
+      "name": "redisson.lock.server.database",
+      "type": "java.lang.Integer",
+      "description": "选取那个数据库",
+      "sourceType": "com.example.demo.entity.RedissonProperties",
+      "defaultValue": 0
+    },
+    {
+      "name": "redisson.lock.server.password",
+      "type": "java.lang.String",
+      "description": "redis 连接密码",
+      "sourceType": "com.example.demo.entity.RedissonProperties"
+    },
+    {
+      "name": "redisson.lock.server.type",
+      "type": "java.lang.String",
+      "description": "连接类型，支持standalone-单机节点，sentinel-哨兵，cluster-集群，masterslave-主从",
+      "sourceType": "com.example.demo.entity.RedissonProperties"
+    }
+  ],
+  "hints": []
+}

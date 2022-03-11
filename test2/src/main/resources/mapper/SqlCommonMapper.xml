@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.dao.SqlCommon">
+
+    <select id="sql" resultType="java.util.Map" >
+        ${sql}
+    </select>
+
+    <select id="sqlLinked" resultType="java.util.LinkedHashMap" >
+        ${sql}
+    </select>
+
+    <select id="sqlzd" resultType="String" >
+        ${sql}
+    </select>
+
+
+    <insert id="insertByMap">
+        INSERT INTO ${tableName}
+        <foreach collection="rowMap.keys" item="key" open="(" close=")"
+                 separator=",">
+            ${key}
+        </foreach>
+        VALUES
+        <foreach collection="rowMap.keys" item="key" open="(" close=")"
+                 separator=",">
+            #{rowMap[${key}]}
+        </foreach>
+    </insert>
+</mapper>
