@@ -1,0 +1,99 @@
+spring:
+  devtools:
+    restart:
+      enabled: true  #设置开启热部署
+      additional-paths: src/main/java #重启目录
+  datasource:
+    druid:
+      stat-view-servlet:
+        allow: 127.0.0.1,58.210.9.1/24,114.219.21.1/24,192.168.1.1/16
+        login-username: admin
+        login-password: 123@abcd
+        enabled: true
+    dynamic:
+      p6spy: true
+      primary: DATACENTER
+      datasource:
+        datacenter:
+          driver-class-name: com.p6spy.engine.spy.P6SpyDriver
+          url: jdbc:mysql://81.69.174.71:3066/datacenter?useUnicode=true&characterEncoding=UTF8&serverTimezone=Asia/Shanghai
+          #云服务器外网
+          #          url: jdbc:mysql://81.69.202.201:3306/datacenter?useUnicode=true&characterEncoding=UTF8&serverTimezone=Asia/Shanghai
+          #云服务器内网
+          #          url: jdbc:mysql://172.17.16.14:3306/datacenter?useUnicode=true&characterEncoding=UTF8&serverTimezone=Asia/Shanghai
+          username: root
+          password: 123@abcd
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+  web:
+    resources:
+      add-mappings: false
+  application:
+    name: datacenter
+  redis:
+    host: 192.168.63.16
+    password:
+    port: 6379
+    database: 0
+#  redis:
+#    sentinel:
+#      master: mymaster
+#      nodes: 127.0.0.1:26379,127.0.0.1:26380,127.0.0.1:26381
+#    connect-timeout: 5000
+#    password:
+  session:
+    store-type: redis
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+server:
+  port: 8081
+
+
+mybatis-plus:
+  global-config:
+    banner: false
+    db-config:
+      table-underline: false
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    map-underscore-to-camel-case: true
+    # 返回null字段不自动过滤
+    call-setters-on-nulls : true
+system:
+  appId: tc_zhcx
+  gridAppIds: tc_zhcx,ldzx_map
+  appIds2000:
+
+#logging:
+#  level:
+#    com.baomidou.dynamic: debug
+#  config: classpath:log4j2.xml
+
+#jeecg:
+#  minio:
+#    minio_url: http://81.69.202.201:9000/
+#    minio_name: minioadmin
+#    minio_pass: minioadmin
+#    bucketName: datacenter
+#    minio_url_path: http://81.69.202.201:9000/
+#sipsd:
+#  flowable:
+#    api: http://81.69.202.201:8989/sipsd-flow-modeler/
+#    api: http://192.168.63.6:8989/sipsd-flow-modeler/
+
+minio:
+  miniourl: http://81.69.202.201:9000/
+  name: minioadmin
+  pass: minioadmin
+  bucketName: zwtest
+  urlpath: http://81.69.202.201:9000/
+
+upload:
+  ip: http://81.69.202.201:9000/
+
+jwt:
+  key: abcdefg
