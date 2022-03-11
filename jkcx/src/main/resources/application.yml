@@ -1,0 +1,33 @@
+spring:
+  profiles:
+    active: dev
+  datasource:
+#    url: jdbc:mysql://192.168.123.18:3306/apk-jiekou?serverTimezone=Asia/Shanghai
+    url: jdbc:mysql://192.168.63.16:3306/zhouwei?serverTimezone=Asia/Shanghai
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+#    password: root
+    password: 123@abcd
+
+
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 256MB
+      max-request-size: 256MB
+
+
+mybatis-plus:
+  configuration:
+    useGeneratedKeys: false
+    map-underscore-to-camel-case: false
+
+filePath: "D:/SavedData/Apk/"
+savePath: "/SavedData/Apk/"
+
+logging:
+  file:
+    name: ./logs/jyukai.log
+
+server:
+  port: 8094

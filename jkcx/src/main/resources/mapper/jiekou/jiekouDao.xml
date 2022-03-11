@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sipsd.jkcx.dao.JiekouDao">
+
+    <select id="getNewestList" resultType="com.sipsd.jkcx.model.JiekouEntity">
+        SELECT id, name, xAppPath, xAppMS, pFilepath, xVer, version_code, updatetime, package as packageStr, ip, rw
+        FROM jiekoulist
+        WHERE (NAME, updatetime) IN (SELECT NAME, MAX(updatetime) AS updatetime FROM jiekoulist GROUP BY NAME)
+        ORDER BY updatetime DESC
+    </select>
+
+    <select id="selectByName" resultType="com.sipsd.jkcx.model.JiekouEntity">
+        SELECT id, name, xAppPath, xAppMS, pFilepath, xVer, version_code, updatetime, package as packageStr, ip, rw
+        FROM jiekoulist
+        WHERE NAME like '%${name}%' AND (NAME, updatetime) IN (SELECT NAME, MAX(updatetime) AS updatetime FROM jiekoulist GROUP BY NAME)
+        ORDER BY updatetime DESC
+    </select>
+
+</mapper>
